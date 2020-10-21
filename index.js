@@ -85,25 +85,25 @@ module.exports = function (sPhrase, sLangCode, mCallback) {
     iGlobalScore = iGlobalScore * (bNegation === true ? -1 : 1);
 
     // we execute the function after the negation detection
-    getTextEmojis(sPhrase);
-    function getTextEmojis(sPhrase) {
+    // getTextEmojis(sPhrase);
+    // function getTextEmojis(sPhrase) {
 
-        // detect smileys like :) ;) :p :/ =/ :-) :( :D xD :-) ^^
-        let regexTextEmojis = new RegExp(/(<[\/\\]?3|[()/|*$][-^]?[:;=]|x[d()]|\^[a-z._-]{?}\^['"]{?}|[:;=B8][\-^]?[3DOPp@$*\\)(\/|])(?=\s|[!.?]|$)/, 'gim');
+    //     // detect smileys like :) ;) :p :/ =/ :-) :( :D xD :-) ^^
+    //     let regexTextEmojis = new RegExp(/(<[\/\\]?3|[()/|*$][-^]?[:;=]|x[d()]|\^[a-z._-]{?}\^['"]{?}|[:;=B8][\-^]?[3DOPp@$*\\)(\/|])(?=\s|[!.?]|$)/, 'gim');
 
-        let smileyArray;
-        while ((smileyArray = regexTextEmojis.exec(sPhrase.toLocaleLowerCase())) !== null) { // convert to lowercase for emojis like :s :S
-            const smileyScore = textEmoji['textemoji'][smileyArray[0]]; // get the emoji score
-            iGlobalScore += Number(smileyScore); // add the score to the global score
+    //     let smileyArray;
+    //     while ((smileyArray = regexTextEmojis.exec(sPhrase.toLocaleLowerCase())) !== null) { // convert to lowercase for emojis like :s :S
+    //         const smileyScore = textEmoji['textemoji'][smileyArray[0]]; // get the emoji score
+    //         iGlobalScore += Number(smileyScore); // add the score to the global score
 
-            // add the smiley into the positive/negative arrays
-            if (smileyScore > 0) {
-                aPositive.push(String(smileyArray[0]));
-            } else {
-                aNegative.push(String(smileyArray[0]));
-            }
-        }
-    }
+    //         // add the smiley into the positive/negative arrays
+    //         if (smileyScore > 0) {
+    //             aPositive.push(String(smileyArray[0]));
+    //         } else {
+    //             aNegative.push(String(smileyArray[0]));
+    //         }
+    //     }
+    // }
 
     // Handle optional async interface
     let oResult = {
